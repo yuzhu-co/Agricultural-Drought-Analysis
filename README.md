@@ -1,16 +1,103 @@
 # Agricultural-Drought-Analysis
-# Master Thesis Project
+# Morocco Drought Monitoring using Machine Learning
 
-## Project Structure
+This repository presents the Master Thesis Project focusing on the application of machine learning and deep learning models for agricultural drought monitoring in Morocco. The study integrates multi-source remote sensing datasets and statistical learning models to construct a New Drought Index (NDI) that captures the spatiotemporal dynamics of drought.
 
-```
-master-thesis/
-│
-├── data/               # Raw or sample data 
-├── notebooks/          # Jupyter notebooks run in Colab (.ipynb)
-├── scripts/            # Extracted Python scripts (.py)
-├── models/             # Trained models or parameters 
-├── output/             # Visualization results, charts, predictions
-├── README.md           # Project introduction, methods and results
-└── requirements.txt    # Required Python packages
-```
+## Abstract
+
+Drought is one of the most costly and complex natural disasters worldwide. This study develops a machine learning-based drought monitoring framework for Morocco's agricultural zones. The framework leverages multiple remote sensing indices—VCI, TCI, SMCI, and GPPCI—as proxies for crop responses to drought.
+
+Four machine learning models (Random Forest, XGBoost, ANN, LSTM) and a linear regression baseline are compared. The models successfully predict drought at least three months in advance, revealing that temperature-related indices dominate early-season prediction, while vegetation indices become more influential later in the growing season.
+
+**Keywords**: Drought prediction, Remote sensing, Machine Learning, Morocco, New Drought Index (NDI)
+
+## Research Objectives
+
+- Optimize multi-source data selection for agricultural drought monitoring.
+- Develop a machine learning framework for constructing a New Drought Index (NDI).
+- Monitor drought propagation and assess model effectiveness across Morocco's agricultural zones.
+
+## Study Scope
+
+The project integrates remote sensing data (temperature, precipitation, soil moisture, vegetation indices) and machine learning models (RF, XGBoost, ANN, LSTM) to monitor and predict agricultural drought. It focuses on winter wheat regions across Morocco and does not include yield forecasting beyond drought impact analysis.
+
+## ⚙️ Methodology
+
+### 1. Data Preparation
+
+- **Data sources**: Landsat, MODIS, Sentinel, ERA5, GPM
+- **Variables**: NDVI, LST, Soil Moisture, GPP, Precipitation, Temperature
+- **Temporal span**: 2000–2023 (monthly data)
+
+### 2. Machine Learning Models
+
+- **Linear Regression** (baseline)
+- **Random Forest (RF)** — ensemble tree model for nonlinear patterns
+- **XGBoost** — gradient-boosted decision trees with regularization
+- **Artificial Neural Network (ANN)** — non-linear regression for drought-yield mapping
+- **LSTM** — time-series deep learning for drought propagation
+
+### 3. Evaluation Metrics
+
+- R² (Coefficient of determination)
+- RMSE (Root Mean Square Error)
+- SMAPE (Symmetric Mean Absolute Percentage Error)
+- Feature importance and SHAP interpretation
+
+## Model Outputs
+
+| Figure | Description |
+|--------|-------------|
+| `feature_importance.png` | Feature importance of drought indices |
+| `NDI_validation.png` | Validation of New Drought Index vs SPI |
+| `model_comparison.png` | Performance comparison of ML/DL models |
+| `yield_anomaly_map.png` | Spatial variation of yield anomalies |
+
+## Results and Findings among Different ML/DL Models
+4.3.1 Performance Evaluation of the Proposed NDI
+Figure 6 compares performances among different models: Linear Regression, Random Forest, XGBoost, ANN, and LSTM. XGBoost and Random Forest reach the top two performance levels, with an R² of 0.68 and 0.64, RMSE of 0.31 and 0.32, and SMAPE of 91.4 and 95.2 on the validation set, respectively. The performance of models like ANN and LSTM is better than the Linear Regression baseline, with R² values of 0.66 and 0.65. The figure also demonstrates that the prediction performance in March is already close to the actual performance in June, suggesting that the model can predict drought three months in advance.
+
+4.3.2 Model Interpretation
+Table 7. Zone-wise Comparison of Key Variables Across Models
+
+Zone	RF + SHAP	ANN Sensitivity (+5%)	LSTM Sensitivity (+5%)	Key Insight
+1	Nov-Feb: TCI
+Mar: GPP+VCI	Mar: VCI+GPP
+Nov-Feb: TCI	Nov-Feb: TCI
+Mar: GPP	Similar pattern to whole region; transitional geographic characteristics
+2	Jan-Feb: SMCI
+Mar-Apr: GPP	Feb: TCI
+Mar: GPP	Nov-Mar: TCI
+Apr: GPP	SMCI critical in mountainous areas; delayed sowing pattern
+3	Nov-Feb: TCI
+Feb-Mar: GPP
+Apr-Jun: VCI	Feb-Apr: GPP
+May: VCI	Nov-Jan: GPP
+Apr: Peak sensitivity	Early crop development; peak sensitivity in April
+4	Nov-Feb: TCI
+Mar-May: GPP	Feb: TCI
+Mar: GPP
+Apr: VCI	Nov-Jun: VCI
+Mar: GPP	GPP in March consistently important despite variable performance
+5	Mar: GPP
+Mar: VCI	Feb-May: GPP	Feb-Jun: TCI
+Mar: GPP	GPP in March strongest indicator; aligns with linear regression
+Key Findings from Model Interpretation:
+Temporal Patterns: TCI dominates early season (Nov-Feb), GPP peaks in March, VCI gains importance late season
+
+Spatial Variations:
+
+Zone 1: Follows regional patterns
+
+Zone 2: SMCI critical in mountainous regions
+
+Zone 3: Early sensitivity peak in April
+
+Zone 5: Strong GPP influence in March
+
+4.3.3 Validation using SPI against NDI
+The correlation analysis shows strong consistency between predicted NDI values and SPI values, particularly with SPI-3:
+
+Zone 3 (March): XGBoost NDI vs SPI-3: R = 0.787 (p < 0.0001)
+
+Zone 5 (January): LSTM NDI vs SPI-1: R = 0.665, vs SPI-3: R = 0.539 (p < 0.0001)
