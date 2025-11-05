@@ -21,7 +21,7 @@ Four machine learning models (Random Forest, XGBoost, ANN, LSTM) and a linear re
 
 The project integrates remote sensing data (temperature, precipitation, soil moisture, vegetation indices) and machine learning models (RF, XGBoost, ANN, LSTM) to monitor and predict agricultural drought. It focuses on winter wheat regions across Morocco and does not include yield forecasting beyond drought impact analysis.
 
-## ⚙️ Methodology
+## Methodology
 
 ### 1. Data Preparation
 
@@ -60,30 +60,26 @@ Figure 6 compares performances among different models: Linear Regression, Random
 4.3.2 Model Interpretation
 Table 7. Zone-wise Comparison of Key Variables Across Models
 
-Zone	RF + SHAP	ANN Sensitivity (+5%)	LSTM Sensitivity (+5%)	Key Insight
-1	Nov-Feb: TCI
-Mar: GPP+VCI	Mar: VCI+GPP
-Nov-Feb: TCI	Nov-Feb: TCI
-Mar: GPP	Similar pattern to whole region; transitional geographic characteristics
-2	Jan-Feb: SMCI
-Mar-Apr: GPP	Feb: TCI
-Mar: GPP	Nov-Mar: TCI
-Apr: GPP	SMCI critical in mountainous areas; delayed sowing pattern
-3	Nov-Feb: TCI
-Feb-Mar: GPP
-Apr-Jun: VCI	Feb-Apr: GPP
-May: VCI	Nov-Jan: GPP
-Apr: Peak sensitivity	Early crop development; peak sensitivity in April
-4	Nov-Feb: TCI
-Mar-May: GPP	Feb: TCI
-Mar: GPP
-Apr: VCI	Nov-Jun: VCI
-Mar: GPP	GPP in March consistently important despite variable performance
-5	Mar: GPP
-Mar: VCI	Feb-May: GPP	Feb-Jun: TCI
-Mar: GPP	GPP in March strongest indicator; aligns with linear regression
-Key Findings from Model Interpretation:
-Temporal Patterns: TCI dominates early season (Nov-Feb), GPP peaks in March, VCI gains importance late season
+### Zone-wise Comparison of Model Interpretation
+
+| Zone | RF + SHAP | ANN Sensitivity (+5%) | LSTM Sensitivity (+5%) | Key Insight |
+|------|-------------|------------------------|--------------------------|--------------|
+| **1** | Nov–Feb: TCI<br>Mar: GPP + VCI | Mar: VCI + GPP<br>Nov–Feb: TCI | Nov–Feb: TCI<br>Mar: GPP | Similar pattern to whole region; transitional geographic characteristics |
+| **2** | Jan–Feb: SMCI<br>Mar–Apr: GPP | Feb: TCI<br>Mar: GPP | Nov–Mar: TCI<br>Apr: GPP | SMCI critical in mountainous areas; delayed sowing pattern |
+| **3** | Nov–Feb: TCI<br>Feb–Mar: GPP<br>Apr–Jun: VCI | Feb–Apr: GPP<br>May: VCI | Nov–Jan: GPP<br>Apr: Peak sensitivity | Early crop development; peak sensitivity in April |
+| **4** | Nov–Feb: TCI<br>Mar–May: GPP | Feb: TCI<br>Mar: GPP<br>Apr: VCI | Nov–Jun: VCI<br>Mar: GPP | GPP in March consistently important despite variable performance |
+| **5** | Mar: GPP<br>Mar: VCI | Feb–May: GPP | Feb–Jun: TCI<br>Mar: GPP | GPP in March strongest indicator; aligns with linear regression |
+
+**Key Findings from Model Interpretation:**
+
+- **Temporal Patterns:**  
+  - TCI dominates the early season (Nov–Feb).  
+  - GPP becomes the most influential factor in **March**.  
+  - VCI gains importance during the late season (Apr–Jun).  
+- **Spatial Variability:**  
+  - Zone 2 shows strong dependence on **SMCI** due to mountainous terrain.  
+  - Zone 3 exhibits the **earliest peak in sensitivity**, aligning with early crop development.  
+  - Zone 5 demonstrates the highest model consistency, with GPP as the leading drought indicator.  
 
 Spatial Variations:
 
