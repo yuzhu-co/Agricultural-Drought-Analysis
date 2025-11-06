@@ -1,21 +1,24 @@
 # Agricultural-Drought-Analysis
 agri-drought-ML/
 │
-├── README.md                 
-├── data/                         
+├── README.md                        ← 项目介绍（你的论文摘要 + 结果）
+├── data/                            ← 数据或样例文件
 │   ├── drought_indices.csv
 │   └── yield_data.csv
 │
-├── src/                             ← （Python）
+├── src/                             ← 代码脚本（Python 或 R）
 │   ├── model_training.ipynb         ← Colab Notebook
 │   ├── feature_importance.py
 │   └── evaluation_metrics.py
 │
-├── output/                      
+├── output/                          ← 模型结果图片与图表
 │   ├── feature_importance.png
 │   ├── NDI_validation.png
 │   ├── model_comparison.png
 │   └── yield_anomaly_map.png
+│
+└── requirements.txt                 ← 环境依赖（可选）
+
 
 # Morocco Drought Monitoring using Machine Learning
 
