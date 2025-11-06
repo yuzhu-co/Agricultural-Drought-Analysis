@@ -1,4 +1,22 @@
 # Agricultural-Drought-Analysis
+agri-drought-ML/
+│
+├── README.md                 
+├── data/                         
+│   ├── drought_indices.csv
+│   └── yield_data.csv
+│
+├── src/                             ← （Python）
+│   ├── model_training.ipynb         ← Colab Notebook
+│   ├── feature_importance.py
+│   └── evaluation_metrics.py
+│
+├── output/                      
+│   ├── feature_importance.png
+│   ├── NDI_validation.png
+│   ├── model_comparison.png
+│   └── yield_anomaly_map.png
+
 # Morocco Drought Monitoring using Machine Learning
 
 This repository presents the Master Thesis Project focusing on the application of machine learning and deep learning models for agricultural drought monitoring in Morocco. The study integrates multi-source remote sensing datasets and statistical learning models to construct a New Drought Index (NDI) that captures the spatiotemporal dynamics of drought.
